@@ -45,3 +45,22 @@ Each line records what was accomplished in a session.
 [NEXT] Try alternate GitHub push method (SSH, gh CLI, or mirror)
 [NEXT] Deploy to Render
 [NEXT] Full end-to-end testing: start backend + frontend simultaneously
+
+--- Session 2: 2026-05-19 ---
+[BUGFIX] Skills API returned 500: LazyInitializationException from accessing lazy-loaded
+ Category/Author outside transaction (spring.jpa.open-in-view=false). Fixed by adding
+ @Transactional(readOnly=true) to SkillServiceImpl.querySkills() and getSkillDetail()
+[BUGFIX] Removed precision/scale from Skill.ratingAvg @Column (Hibernate 6 rejects
+ floating-point precision). ratingAvg: Double, nullable=false only
+[VERIFY] All core APIs verified working after restart:
+ - GET /skills → 200, 8 seed skills returned with tags, platforms, security levels
+ - GET /skills/search?q=code → 200, filtered search results
+ - GET /skills/claude-code-assistant → 200, full detail with features, author, security
+ - GET /skills/trending → 200, trending list
+ - GET /skills/featured → 200, empty (no featured set)
+ - GET /categories → 200, 4 categories
+ - POST /auth/login → 200, JWT token returned (admin/admin123)
+ - GET /health → UP
+[FRONTEND] Vite dev server started on 5173, proxy /api → localhost:8080 verified
+[GIT] Commit 3: fix @Transactional for lazy-loading (2 files, +3/-1)
+[STATUS] Full stack running: backend 8080 + frontend 5173, API proxy active
