@@ -63,7 +63,7 @@ function CommentItem({ comment }: { comment: CommentVO }) {
   return (
     <div className="border-l-2 border-gray-200 pl-4">
       <div className="flex items-center gap-2 mb-1">
-        <span className="font-medium text-sm">{comment.username}</span>
+        <span className="font-medium text-sm">{comment.authorName}</span>
         <span className="text-xs text-gray-400">{new Date(comment.createdAt).toLocaleDateString()}</span>
       </div>
       <p className="text-sm text-gray-600">{comment.content}</p>

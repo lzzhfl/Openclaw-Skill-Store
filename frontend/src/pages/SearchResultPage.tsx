@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../components/search/SearchBar';
 import FilterPanel from '../components/search/FilterPanel';
 import SkillGrid from '../components/skill/SkillGrid';
@@ -10,7 +10,6 @@ import type { FilterValues } from '../components/search/FilterPanel';
 
 const SearchResultPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
   const { query, results, loading, error, totalPages, currentPage, totalElements, setQuery, setFilters, search } =
     useSearchStore();
 
@@ -50,7 +49,7 @@ const SearchResultPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
         <SearchBar
-          initialQuery={urlQuery}
+          initialValue={urlQuery}
           onSearch={handleSearch}
           placeholder="Search skills by name, description, or tags..."
         />

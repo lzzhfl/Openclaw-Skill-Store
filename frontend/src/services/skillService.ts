@@ -42,9 +42,10 @@ export const skillService = {
     return response.data.data;
   },
 
-  async createSkill(data: FormData): Promise<SkillVO> {
+  async createSkill(data: Record<string, unknown> | FormData): Promise<SkillVO> {
+    const isFormData = data instanceof FormData;
     const response = await apiClient.post('/api/skills', data, {
-      headers: { 'Content-Type': 'multipart/form-data' },
+      headers: isFormData ? { 'Content-Type': 'multipart/form-data' } : undefined,
     });
     return response.data.data;
   },

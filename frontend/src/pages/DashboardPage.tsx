@@ -1,4 +1,4 @@
-import { useAuthStore } from '../../store/authStore'
+import { useAuthStore } from '../store/authStore'
 import { Link } from 'react-router-dom'
 import EmptyState from '../components/common/EmptyState'
 

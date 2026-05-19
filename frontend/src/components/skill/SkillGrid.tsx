@@ -12,7 +12,7 @@ interface SkillGridProps {
 export default function SkillGrid({ skills, loading, error }: SkillGridProps) {
   if (loading) return <LoadingSpinner />
   if (error) return <EmptyState title="Error" description={error} icon="⚠️" />
-  if (skills.length === 0) return <EmptyState />
+  if (skills.length === 0) return <EmptyState title="No skills found" description="Try adjusting your search or filters" />
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

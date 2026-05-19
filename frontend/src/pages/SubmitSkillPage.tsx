@@ -2,8 +2,8 @@ import { useState, FormEvent, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { skillService } from '../services/skillService'
 import { categoryService } from '../services/categoryService'
-import { useAuthStore } from '../../store/authStore'
-import type { CategoryVO } from '../../types/skill'
+import { useAuthStore } from '../store/authStore'
+import { type CategoryVO } from '../services/categoryService'
 
 export default function SubmitSkillPage() {
   const { isAuthenticated, user } = useAuthStore()
