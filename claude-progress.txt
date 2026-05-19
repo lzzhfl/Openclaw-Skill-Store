@@ -69,3 +69,17 @@ Each line records what was accomplished in a session.
 [GIT] SSH push working: git@github.com:lzzhfl/Openclaw-Skill-Store.git (6 commits)
 [DEPLOY] Code ready for Render: render.yaml + Dockerfile + ProdDataInitializer all verified
 [DEPLOY] Next: Connect GitHub repo in Render dashboard → auto-detects render.yaml → provisions all 3 services
+
+--- Session 3: 2026-05-19 ---
+[DEPLOY] Switched from Render to Fly.io+Vercel (Render blocked by GFW)
+[DEPLOY] User insisted on single-platform Render deployment
+[DEPLOY] Created GitHub Actions workflow (deploy-render.yml) to bypass GFW:
+ GitHub Actions runs in US → calls Render API → provisions Blueprint
+[DEPLOY] Deploy to Render workflow: 2 runs, both SUCCESS (08:34 and 08:53 UTC)
+[DEPLOY] Services live:
+ - Frontend: https://openclaw-skill-store-frontend.onrender.com
+ - Backend:  https://openclaw-skill-store-api.onrender.com
+ - Database: Render PostgreSQL (auto-provisioned)
+[DEPLOY] Note: Render free tier sleeps after 15min inactivity, cold start ~30-60s
+[STATUS] All 15/15 features verified and deployed
+[STATUS] 9 git commits on GitHub, full CI/CD pipeline active

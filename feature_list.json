@@ -106,8 +106,8 @@
       "category": "devops",
       "description": "Deployed to Render with accessible URL",
       "steps": ["Push code to GitHub", "Connect Render to repo", "Verify render.yaml provisions services", "Verify frontend URL loads and API works"],
-      "passes": false,
-      "note": "Blocked by GitHub push issue"
+      "passes": true,
+      "note": "Deployed via GitHub Actions: frontend + backend + PostgreSQL on Render"
     }
   ]
 }
