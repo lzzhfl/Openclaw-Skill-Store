@@ -1,0 +1,111 @@
+{
+  "project": "OpenClaw Skill Store",
+  "lastUpdated": "2026-05-19",
+  "features": [
+    {
+      "id": "P1-01",
+      "category": "backend",
+      "description": "Spring Boot project compiles and starts successfully",
+      "steps": ["Run 'mvn compile' in backend/", "Start application with dev profile", "Verify /api/v1/health returns UP"],
+      "passes": false
+    },
+    {
+      "id": "P1-02",
+      "category": "backend",
+      "description": "GET /api/v1/skills returns paginated skill list",
+      "steps": ["Start backend", "GET /api/v1/skills", "Verify JSON response with skills array"],
+      "passes": false
+    },
+    {
+      "id": "P1-03",
+      "category": "backend",
+      "description": "GET /api/v1/skills/search?q=claude returns filtered results",
+      "steps": ["Start backend with seed data", "Search for 'claude'", "Verify matching skills returned"],
+      "passes": false
+    },
+    {
+      "id": "P1-04",
+      "category": "backend",
+      "description": "GET /api/v1/skills/{slug} returns full skill detail",
+      "steps": ["GET /api/v1/skills/claude-code-assistant", "Verify response includes description/tags/platforms/features/author"],
+      "passes": false
+    },
+    {
+      "id": "P1-05",
+      "category": "backend",
+      "description": "GET /api/v1/categories returns category tree",
+      "steps": ["GET /api/v1/categories", "Verify nested category structure"],
+      "passes": false
+    },
+    {
+      "id": "P1-06",
+      "category": "backend",
+      "description": "POST /api/v1/skills/{id}/install records download",
+      "steps": ["POST /api/v1/skills/1/install", "GET skill detail and verify downloadsCount incremented"],
+      "passes": false
+    },
+    {
+      "id": "P1-07",
+      "category": "backend",
+      "description": "User registration and JWT login works",
+      "steps": ["POST /api/v1/auth/register", "POST /api/v1/auth/login", "Use returned token to call /api/v1/auth/me"],
+      "passes": false
+    },
+    {
+      "id": "P1-08",
+      "category": "backend",
+      "description": "POST /api/v1/skills creates new skill (AUTHOR role)",
+      "steps": ["Login as author user", "POST new skill with valid data", "Verify skill appears in GET /skills"],
+      "passes": false
+    },
+    {
+      "id": "P1-09",
+      "category": "frontend",
+      "description": "Homepage displays hero section, featured skills, trending grid",
+      "steps": ["Start frontend dev server", "Navigate to http://localhost:5173", "Verify HeroSection renders", "Verify TopRanking shows 3 skills", "Verify SkillGrid shows skills"],
+      "passes": false
+    },
+    {
+      "id": "P1-10",
+      "category": "frontend",
+      "description": "Browse page shows category sidebar and skill grid",
+      "steps": ["Navigate to /skills", "Verify category sidebar renders", "Click a category", "Verify filtered skills appear"],
+      "passes": false
+    },
+    {
+      "id": "P1-11",
+      "category": "frontend",
+      "description": "Skill detail page shows all fields + install button",
+      "steps": ["Navigate to /skills/claude-code-assistant", "Verify name/description/security badge", "Click Install button", "Verify modal shows install command with copy button"],
+      "passes": false
+    },
+    {
+      "id": "P1-12",
+      "category": "frontend",
+      "description": "Search bar navigates to search results",
+      "steps": ["Type 'security' in search bar", "Press Enter", "Verify /search page loads with results"],
+      "passes": false
+    },
+    {
+      "id": "P1-13",
+      "category": "frontend",
+      "description": "Login page authenticates user",
+      "steps": ["Navigate to /login", "Enter credentials (demo/demo123)", "Submit", "Verify redirect to home with logged-in state"],
+      "passes": false
+    },
+    {
+      "id": "P1-14",
+      "category": "devops",
+      "description": "Git repository initialized and code pushed to GitHub",
+      "steps": ["git init", "git add .", "git commit", "git push to https://github.com/lzzhfl/Openclaw-Skill-Store"],
+      "passes": false
+    },
+    {
+      "id": "P1-15",
+      "category": "devops",
+      "description": "Deployed to Render with accessible URL",
+      "steps": ["Push code to GitHub", "Connect Render to repo", "Verify render.yaml provisions services", "Verify frontend URL loads and API works"],
+      "passes": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+}
+
+.prose h1 { @apply text-2xl font-bold mt-6 mb-4; }
+.prose h2 { @apply text-xl font-bold mt-5 mb-3; }
+.prose h3 { @apply text-lg font-semibold mt-4 mb-2; }
+.prose p { @apply my-3 leading-relaxed; }
+.prose ul { @apply list-disc pl-6 my-2; }
+.prose ol { @apply list-decimal pl-6 my-2; }
+.prose li { @apply my-1; }
+.prose code { @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm text-pink-600; }
+.prose pre { @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4; }
+.prose pre code { @apply bg-transparent text-gray-100 p-0; }

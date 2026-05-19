@@ -1,0 +1,31 @@
+=== OpenClaw Skill Store - Progress Log ===
+Pattern from: Anthropic "Effective Harnesses for Long-Running Agents"
+Each line records what was accomplished in a session.
+
+--- Session 1: 2026-05-19 ---
+[SETUP] Initialized project structure at C:/Users/lzzhf/Openclaw-Skill-Store/
+[SETUP] Created .gitignore and render.yaml deployment blueprint
+[SETUP] Created CLAUDE.md, init.sh, feature_list.json, claude-progress.txt (harness files)
+
+[BACKEND] Created Maven pom.xml with Spring Boot 3.2.5, Spring Security, JWT, JPA, H2, PostgreSQL
+[BACKEND] Created 14 JPA entity classes: User, Category, Skill, Tag, SkillTag, SecurityRating, FeatureList, CompatiblePlatform, Review, Download, Favorite, Post, Comment, SkillVersion
+[BACKEND] Created 12 Repository interfaces with custom query methods
+[BACKEND] Created 6 DTOs: SkillQueryRequest, SkillCreateRequest, LoginRequest, RegisterRequest, ReviewRequest, PostRequest
+[BACKEND] Created 7 VOs: SkillVO, SkillDetailVO, UserVO, CategoryVO, ReviewVO, PostVO, CommentVO
+[BACKEND] Created 5 Service interfaces + implementations: Skill, Category, Auth, Review, Post
+[BACKEND] Created 6 Controllers: SkillController, CategoryController, AuthController, ReviewController, PostController, HealthController
+[BACKEND] Created SecurityConfig (JWT + role-based auth), CorsConfig, JwtTokenProvider, JwtAuthenticationFilter
+[BACKEND] Created GlobalExceptionHandler with BusinessException and ResourceNotFoundException
+[BACKEND] Created DataInitializer with 8 seed skills, 4 categories, 4 tags, 3 users (dev profile)
+[BACKEND] Created 3 application.yml profiles: common, dev (H2), prod (PostgreSQL)
+[BACKEND] Created Dockerfile (multi-stage Maven build + JRE runtime)
+[BACKEND] NOTE: Maven build pending - network timeout to Maven Central, needs mirror config
+
+[FRONTEND] Launched background agent to create all React + Vite + TypeScript + TailwindCSS files
+[FRONTEND] Files being created: package.json, configs, types, services, stores, hooks, router, components, pages
+
+[NEXT] Fix Maven mirror for China network access
+[NEXT] Complete frontend file creation
+[NEXT] npm install + verify frontend compiles
+[NEXT] Initialize Git repo and push to GitHub
+[NEXT] Deploy to Render
