@@ -13,19 +13,8 @@ jobs:
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Create app (if not exists)
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: |
-          flyctl apps create openclaw-skill-store --org personal 2>/dev/null || echo "App already exists"
-
-      - name: Create volume (if not exists)
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: |
-          flyctl volumes create data --size 1 --app openclaw-skill-store --region lax 2>/dev/null || echo "Volume already exists"
-
       - name: Deploy
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: flyctl deploy --app openclaw-skill-store --remote-only
+        run: |
+          flyctl deploy --app openclaw-skill-store --remote-only 2>&1
