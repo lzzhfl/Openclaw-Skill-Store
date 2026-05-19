@@ -1,10 +1,11 @@
 services:
   # Frontend: React Static Site
-  - type: web
+  - type: static
     name: openclaw-skill-store-frontend
-    runtime: static
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/dist
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: false
     envVars:
       - key: VITE_API_BASE_URL
         value: https://openclaw-skill-store-api.onrender.com
@@ -21,8 +22,8 @@ services:
   - type: web
     name: openclaw-skill-store-api
     runtime: docker
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    rootDir: backend
+    dockerfilePath: Dockerfile
     healthCheckPath: /api/v1/health
     envVars:
       - key: SPRING_PROFILES_ACTIVE
