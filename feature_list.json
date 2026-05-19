@@ -98,8 +98,8 @@
       "category": "devops",
       "description": "Git repository initialized and code pushed to GitHub",
       "steps": ["git init", "git add .", "git commit", "git push to https://github.com/lzzhfl/Openclaw-Skill-Store"],
-      "passes": false,
-      "note": "4 commits done, push blocked by GFW. SSH key (id_ed25519) exists but not authorized on GitHub account"
+      "passes": true,
+      "note": "5 commits pushed to git@github.com:lzzhfl/Openclaw-Skill-Store.git via SSH"
     },
     {
       "id": "P1-15",
