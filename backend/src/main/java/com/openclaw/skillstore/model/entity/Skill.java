@@ -60,7 +60,7 @@ public class Skill {
     @Builder.Default
     private Long downloadsCount = 0L;
 
-    @Column(name = "rating_avg", nullable = false, precision = 3, scale = 2)
+    @Column(name = "rating_avg", nullable = false)
     @Builder.Default
     private Double ratingAvg = 0.0;
 

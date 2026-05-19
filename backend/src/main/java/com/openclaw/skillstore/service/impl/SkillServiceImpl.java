@@ -40,6 +40,7 @@ public class SkillServiceImpl implements SkillService {
     private final DownloadRepository downloadRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public PageResult<SkillVO> querySkills(SkillQueryRequest request) {
         Sort sort = getSort(request.getSortBy());
         Pageable pageable = PageRequest.of(request.getPage(), request.getSize(), sort);
@@ -64,6 +65,7 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public SkillDetailVO getSkillDetail(String slug) {
         Skill skill = skillRepository.findBySlug(slug)
             .orElseThrow(() -> new ResourceNotFoundException("Skill not found: " + slug));
